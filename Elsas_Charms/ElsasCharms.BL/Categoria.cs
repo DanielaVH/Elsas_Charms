@@ -11,7 +11,8 @@ namespace ElsasCharms.BL
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Ingrese la categoria")]
+        [Display(Name = "Descripción")]
+        [Required(ErrorMessage = "Ingrese la Categoría")]
         public string Descripcion { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace ElsasCharms.WebAdmin.Controllers
             _categoriasBL = new CategoriasBL();
 
         }
+
         // GET: Productos
         public ActionResult Index()
         {
@@ -41,13 +42,51 @@ namespace ElsasCharms.WebAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (producto.CategoriaId ==0)
+                if (producto.CategoriaId == 0)
                 {
-                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
+                    ModelState.AddModelError("CategoriaId", "Seleccione una categoría");
+                    return View(producto);
+                }
+                if (imagen != null)
+                {
+                    producto.UrlImagen = GuardarImagen(imagen);
+                }
+
+                _productosBL.GuardarProducto(producto);
+
+                return RedirectToAction("Index");
+            }
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+
+            return View(producto);
+            
+
+        }
+
+        public ActionResult Editar(int id)
+        {
+            var producto = _productosBL.ObtenerProducto(id);
+            var categorias = _categoriasBL.ObtenerCategorias();
+
+            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
+
+            return View(producto);
+        }
+        
+        [HttpPost]
+        public ActionResult Editar(Producto producto, HttpPostedFileBase imagen)
+        {
+            if (ModelState.IsValid)
+            {
+                if (producto.CategoriaId == 0)
+                {
+                    ModelState.AddModelError("CategoriaId", "Seleccione una categoría");
                     return View(producto);
                 }
 
-                if(imagen != null)
+                if (imagen != null)
                 {
                     producto.UrlImagen = GuardarImagen(imagen);
                 }
@@ -61,35 +100,6 @@ namespace ElsasCharms.WebAdmin.Controllers
 
             ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
 
-            return View(producto);
-
-        }
-        public ActionResult Editar(int id)
-        {
-            var producto = _productosBL.ObtenerProducto(id);
-            var categorias = _categoriasBL.ObtenerCategorias();
-
-            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion", producto.CategoriaId);
-
-            return View(producto);
-        }
-
-        [HttpPost]
-        public ActionResult Editar(Producto producto)
-        {
-            if (ModelState.IsValid)
-            {
-                if (producto.CategoriaId == 0)
-                {
-                    ModelState.AddModelError("CategoriaId", "Seleccione una categoria");
-                    return View(producto);
-                }
-                _productosBL.GuardarProducto(producto);
-
-                return RedirectToAction("Index");
-            }
-            var categorias = _categoriasBL.ObtenerCategorias();
-            ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");
             return View(producto);
         }
 
@@ -117,7 +127,6 @@ namespace ElsasCharms.WebAdmin.Controllers
             return RedirectToAction("Index");
         }
 
-
         private string GuardarImagen(HttpPostedFileBase imagen)
         {
             string path = Server.MapPath("~/Imagenes/" + imagen.FileName);
@@ -125,6 +134,5 @@ namespace ElsasCharms.WebAdmin.Controllers
 
             return "/Imagenes/" + imagen.FileName;
         }
-
     }
 }

@@ -16,6 +16,7 @@ namespace ElsasCharms.WebAdmin.Controllers
             _categoriasBL = new CategoriasBL();
 
         }
+
         // GET: Productos
         public ActionResult Index()
         {
@@ -26,8 +27,6 @@ namespace ElsasCharms.WebAdmin.Controllers
 
         public ActionResult Crear()
         {
-
-
             var nuevaCategoria = new Categoria();
 
             return View(nuevaCategoria);
@@ -36,20 +35,22 @@ namespace ElsasCharms.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Crear(Categoria categoria)
         {
-
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if(categoria.Descripcion != categoria.Descripcion.Trim())
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
                 {
-                    ModelState.AddModelError("Descripcion", "La descripción no debe contener espacios al inicio o al final");
+                    ModelState.AddModelError("Descripcion", "La Descripción no debe contener espacios al inicio o al final");
                     return View(categoria);
                 }
                 _categoriasBL.GuardarCategoria(categoria);
 
                 return RedirectToAction("Index");
             }
-
-            return View(categoria);            
+            else
+            {
+                return View(categoria);
+            }
+            
         }
 
         public ActionResult Editar(int id)
@@ -66,16 +67,17 @@ namespace ElsasCharms.WebAdmin.Controllers
             {
                 if (categoria.Descripcion != categoria.Descripcion.Trim())
                 {
-                    ModelState.AddModelError("Descripcion", "La descripción no debe contener espacios al inicio o al final");
+                    ModelState.AddModelError("Descripcion", "La Descripción no debe contener espacios al inicio o al final");
                     return View(categoria);
                 }
-
                 _categoriasBL.GuardarCategoria(categoria);
 
                 return RedirectToAction("Index");
             }
-
-            return View(categoria);
+            else
+            {
+                return View(categoria);
+            }
         }
 
         public ActionResult Detalle(int id)

@@ -39,17 +39,17 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Existencia)
+            @Html.DisplayNameFor(model => model.Existencia)
         </dd>
-        
+
         <dt>
-            @Html.DisplayNameFor(model => model.UrlImagen)
+            @Html.DisplayFor(model => model.UrlImagen)
         </dt>
 
         <dd>
-            <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto;" />
+            <img src="@Model.UrlImagen" alt="@Model.Descripcion" style="width:200px; height:auto;"/>
         </dd>
-        
+
         <dt>
             @Html.DisplayNameFor(model => model.Activo)
         </dt>
@@ -60,6 +60,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a Productos", "Index")
 </p>

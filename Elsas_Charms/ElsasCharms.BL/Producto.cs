@@ -17,21 +17,19 @@ namespace ElsasCharms.BL
         public int Id { get; set; }
 
         [Display(Name = "Descripción")]
-        [Required(ErrorMessage = "Ingrese una descripción")]
-        [MinLength (3,ErrorMessage = "Ingrese minimo 3 caracteres")]
-        [MaxLength(20, ErrorMessage = "Ingrese un máximo de 20 caracteres")]
+        [Required(ErrorMessage = "Ingrese la descripción")]
+        [MinLength(3, ErrorMessage ="Ingrese mínimo 3 caracteres")]
+        [MaxLength(25, ErrorMessage = "Ingrese máximo 25 caracteres")]
         public string Descripcion { get; set; }
 
-
-        [Required (ErrorMessage = "Ingrese precio")]
-        [Range(0,10000, ErrorMessage = "Ingrese precio entre 0 y 10000")]
+        [Required(ErrorMessage = "Ingrese un precio")]
+        [Range(0, 3000, ErrorMessage = "Ingrese un precio entre 0 y 3,000")]
         public double Precio { get; set; }
         public int Existencia { get; set; }
         public Categoria Categoria { get; set; }
         public int CategoriaId { get; set; }
 
         [Display(Name = "Imagen")]
-
         public string UrlImagen { get; set; }
 
         public bool Activo { get; set; }

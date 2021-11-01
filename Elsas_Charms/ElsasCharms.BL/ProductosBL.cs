@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElsasCharms.BL
 {
@@ -38,11 +35,9 @@ namespace ElsasCharms.BL
                 var productoExistente = _contexto.Productos.Find(producto.Id);
 
                 productoExistente.Descripcion = producto.Descripcion;
-                productoExistente.CategoriaId = producto.CategoriaId;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.Existencia = producto.Existencia;
                 productoExistente.UrlImagen = producto.UrlImagen;
-
             }
 
             _contexto.SaveChanges();

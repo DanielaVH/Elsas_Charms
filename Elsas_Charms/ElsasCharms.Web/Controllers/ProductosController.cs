@@ -9,13 +9,19 @@ namespace ElsasCharms.Web.Controllers
 {
     public class ProductosController : Controller
     {
+        ProductosBL _productosBL;
+
+        public ProductosController()
+        {
+            _productosBL = new ProductosBL();
+        }
         // GET: Productos
         public ActionResult Index()
         {
-            var productosBL = new ProductosBL();
-            var listadeProductos = productosBL.ObtenerProductos();
+            var listadeProductos = _productosBL.ObtenerProductos();
             
             return View(listadeProductos);
         }
+
     }
 }

@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formProductos));
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label descripcionLabel;
             System.Windows.Forms.Label precioLabel;
             System.Windows.Forms.Label existenciaLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formProductos));
             this.listadeProductosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.listadeProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -48,29 +49,64 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.listadeProductosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.listadeProductosDataGridView = new System.Windows.Forms.DataGridView();
-            this.panelTitulo = new System.Windows.Forms.Panel();
-            this.idTextBox = new System.Windows.Forms.TextBox();
-            this.descripcionTextBox = new System.Windows.Forms.TextBox();
-            this.precioTextBox = new System.Windows.Forms.TextBox();
-            this.existenciaTextBox = new System.Windows.Forms.TextBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.listadeProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTitulo = new System.Windows.Forms.Panel();
             this.lblEmpresa = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.descripcionTextBox = new System.Windows.Forms.TextBox();
+            this.precioTextBox = new System.Windows.Forms.TextBox();
+            this.existenciaTextBox = new System.Windows.Forms.TextBox();
             idLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
             existenciaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingNavigator)).BeginInit();
             this.listadeProductosBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listadeProductosDataGridView)).BeginInit();
             this.panelTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(13, 91);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(23, 17);
+            idLabel.TabIndex = 3;
+            idLabel.Text = "Id:";
+            // 
+            // descripcionLabel
+            // 
+            descripcionLabel.AutoSize = true;
+            descripcionLabel.Location = new System.Drawing.Point(9, 122);
+            descripcionLabel.Name = "descripcionLabel";
+            descripcionLabel.Size = new System.Drawing.Size(86, 17);
+            descripcionLabel.TabIndex = 5;
+            descripcionLabel.Text = "Descripcion:";
+            // 
+            // precioLabel
+            // 
+            precioLabel.AutoSize = true;
+            precioLabel.Location = new System.Drawing.Point(9, 158);
+            precioLabel.Name = "precioLabel";
+            precioLabel.Size = new System.Drawing.Size(52, 17);
+            precioLabel.TabIndex = 7;
+            precioLabel.Text = "Precio:";
+            // 
+            // existenciaLabel
+            // 
+            existenciaLabel.AutoSize = true;
+            existenciaLabel.Location = new System.Drawing.Point(9, 193);
+            existenciaLabel.Name = "existenciaLabel";
+            existenciaLabel.Size = new System.Drawing.Size(75, 17);
+            existenciaLabel.TabIndex = 9;
+            existenciaLabel.Text = "Existencia:";
             // 
             // listadeProductosBindingNavigator
             // 
@@ -111,6 +147,10 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // listadeProductosBindingSource
+            // 
+            this.listadeProductosBindingSource.DataSource = typeof(ElsasCharms.BL.Producto);
             // 
             // bindingNavigatorCountItem
             // 
@@ -210,106 +250,8 @@
             this.listadeProductosDataGridView.Location = new System.Drawing.Point(12, 224);
             this.listadeProductosDataGridView.Name = "listadeProductosDataGridView";
             this.listadeProductosDataGridView.RowTemplate.Height = 24;
-            this.listadeProductosDataGridView.Size = new System.Drawing.Size(760, 220);
+            this.listadeProductosDataGridView.Size = new System.Drawing.Size(768, 220);
             this.listadeProductosDataGridView.TabIndex = 1;
-            // 
-            // panelTitulo
-            // 
-            this.panelTitulo.BackColor = System.Drawing.Color.Teal;
-            this.panelTitulo.Controls.Add(this.lblEmpresa);
-            this.panelTitulo.Controls.Add(this.btnCerrar);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(792, 52);
-            this.panelTitulo.TabIndex = 2;
-            this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
-            // 
-            // idLabel
-            // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(13, 91);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(23, 17);
-            idLabel.TabIndex = 3;
-            idLabel.Text = "Id:";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(106, 88);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(100, 22);
-            this.idTextBox.TabIndex = 4;
-            // 
-            // descripcionLabel
-            // 
-            descripcionLabel.AutoSize = true;
-            descripcionLabel.Location = new System.Drawing.Point(9, 122);
-            descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(86, 17);
-            descripcionLabel.TabIndex = 5;
-            descripcionLabel.Text = "Descripcion:";
-            // 
-            // descripcionTextBox
-            // 
-            this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Descripcion", true));
-            this.descripcionTextBox.Location = new System.Drawing.Point(106, 119);
-            this.descripcionTextBox.Name = "descripcionTextBox";
-            this.descripcionTextBox.Size = new System.Drawing.Size(279, 22);
-            this.descripcionTextBox.TabIndex = 6;
-            // 
-            // precioLabel
-            // 
-            precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(9, 158);
-            precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(52, 17);
-            precioLabel.TabIndex = 7;
-            precioLabel.Text = "Precio:";
-            // 
-            // precioTextBox
-            // 
-            this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(106, 155);
-            this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(100, 22);
-            this.precioTextBox.TabIndex = 8;
-            // 
-            // existenciaLabel
-            // 
-            existenciaLabel.AutoSize = true;
-            existenciaLabel.Location = new System.Drawing.Point(9, 193);
-            existenciaLabel.Name = "existenciaLabel";
-            existenciaLabel.Size = new System.Drawing.Size(75, 17);
-            existenciaLabel.TabIndex = 9;
-            existenciaLabel.Text = "Existencia:";
-            // 
-            // existenciaTextBox
-            // 
-            this.existenciaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Existencia", true));
-            this.existenciaTextBox.Location = new System.Drawing.Point(106, 188);
-            this.existenciaTextBox.Name = "existenciaTextBox";
-            this.existenciaTextBox.Size = new System.Drawing.Size(100, 22);
-            this.existenciaTextBox.TabIndex = 10;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::ElsasCharms.Win.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(740, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(50, 47);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 1;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // listadeProductosBindingSource
-            // 
-            this.listadeProductosBindingSource.DataSource = typeof(ElsasCharms.BL.Producto);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -336,6 +278,18 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Existencia";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // panelTitulo
+            // 
+            this.panelTitulo.BackColor = System.Drawing.Color.Teal;
+            this.panelTitulo.Controls.Add(this.lblEmpresa);
+            this.panelTitulo.Controls.Add(this.btnCerrar);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulo.Location = new System.Drawing.Point(0, 0);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(792, 52);
+            this.panelTitulo.TabIndex = 2;
+            this.panelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
+            // 
             // lblEmpresa
             // 
             this.lblEmpresa.AutoSize = true;
@@ -347,6 +301,52 @@
             this.lblEmpresa.TabIndex = 6;
             this.lblEmpresa.Text = "Elsas\'s Charms - Mantenimiento de Productos";
             this.lblEmpresa.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::ElsasCharms.Win.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(740, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(50, 47);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Id", true));
+            this.idTextBox.Location = new System.Drawing.Point(106, 88);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(100, 22);
+            this.idTextBox.TabIndex = 4;
+            // 
+            // descripcionTextBox
+            // 
+            this.descripcionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Descripcion", true));
+            this.descripcionTextBox.Location = new System.Drawing.Point(106, 119);
+            this.descripcionTextBox.Name = "descripcionTextBox";
+            this.descripcionTextBox.Size = new System.Drawing.Size(279, 22);
+            this.descripcionTextBox.TabIndex = 6;
+            // 
+            // precioTextBox
+            // 
+            this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Precio", true));
+            this.precioTextBox.Location = new System.Drawing.Point(106, 155);
+            this.precioTextBox.Name = "precioTextBox";
+            this.precioTextBox.Size = new System.Drawing.Size(100, 22);
+            this.precioTextBox.TabIndex = 8;
+            // 
+            // existenciaTextBox
+            // 
+            this.existenciaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listadeProductosBindingSource, "Existencia", true));
+            this.existenciaTextBox.Location = new System.Drawing.Point(106, 188);
+            this.existenciaTextBox.Name = "existenciaTextBox";
+            this.existenciaTextBox.Size = new System.Drawing.Size(100, 22);
+            this.existenciaTextBox.TabIndex = 10;
             // 
             // formProductos
             // 
@@ -373,11 +373,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingNavigator)).EndInit();
             this.listadeProductosBindingNavigator.ResumeLayout(false);
             this.listadeProductosBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listadeProductosDataGridView)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listadeProductosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
