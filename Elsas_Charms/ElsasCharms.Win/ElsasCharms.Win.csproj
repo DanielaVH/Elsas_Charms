@@ -64,16 +64,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formIntegrantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formIntegrantes.Designer.cs">
+      <DependentUpon>formIntegrantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="formProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formProductos.Designer.cs">
       <DependentUpon>formProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="formReporteVentasPorProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formReporteVentasPorProducto.Designer.cs">
+      <DependentUpon>formReporteVentasPorProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIPrincipal.Designer.cs">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formIntegrantes.resx">
+      <DependentUpon>formIntegrantes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formProductos.resx">
       <DependentUpon>formProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formReporteVentasPorProducto.resx">
+      <DependentUpon>formReporteVentasPorProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIPrincipal.resx">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +114,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ElsasCharms.BL.ProductosBL.datasource" />
+    <None Include="Properties\DataSources\ElsasCharms.BL.ReporteVentasPorProductoBL.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +139,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cut-diamond_39242.ico" />
+    <None Include="Resources\clientes.png" />
+    <None Include="Resources\reportes.png" />
+    <None Include="Resources\producto.png" />
+    <None Include="Resources\cerrar1.png" />
+    <None Include="Resources\minimazar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

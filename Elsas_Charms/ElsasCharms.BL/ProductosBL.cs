@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace ElsasCharms.BL
 {
@@ -18,11 +19,23 @@ namespace ElsasCharms.BL
         {
             ListadeProductos = _contexto.Productos
                 .Include("Categoria")
+                .OrderBy(r => r.Categoria.Descripcion)
+                .ThenBy(r => r.Descripcion)
                 .ToList();
 
             return ListadeProductos;
         }
 
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Descripcion)
+                .ToList();
+
+            return ListadeProductos;
+        }
 
         public void GuardarProducto(Producto producto)
         {
@@ -37,7 +50,13 @@ namespace ElsasCharms.BL
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.Existencia = producto.Existencia;
-                productoExistente.UrlImagen = producto.UrlImagen;
+                productoExistente.CategoriaId = producto.CategoriaId;
+                productoExistente.Activo = producto.Activo;
+                if (producto.UrlImagen != null)
+                {
+                    productoExistente.UrlImagen = producto.UrlImagen;
+                }
+               
             }
 
             _contexto.SaveChanges();

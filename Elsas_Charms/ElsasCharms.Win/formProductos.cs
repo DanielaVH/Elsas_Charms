@@ -36,7 +36,12 @@ namespace ElsasCharms.Win
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
+        }
+
+        private void formProductos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
