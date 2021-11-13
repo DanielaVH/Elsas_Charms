@@ -1,46 +1,133 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/elsasicon.ico" rel="shortcut icon" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/templatemo_misc.css">
+    <link rel="stylesheet" href="~/css/templatemo_style.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+
+    <!-- JavaScripts -->
+    <script src="~/js/jquery-1.11.1.min.js"></script>  <!-- lightbox -->
+    <script src="~/js/templatemo_custom.js"></script> <!-- lightbox -->
+    <script src="~/js/jquery.lightbox.js"></script>
+    <script src="~/js/bootstrap-collapse.js"></script>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <!-- menu start -->
+    <div class="menu">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Elsas's Charms :)", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        @Html.ActionLink("Inicio", "Index", "Home")
-                    </li>
-                    <li>
-                        @Html.ActionLink("Nuestros Productos","Index","Productos")
-                    </li>
-                </ul>
+            <div class="row">
+                <div class="templatemo_topwrapper shadow">
+                    <div class="col-sm-4">
+                        <div class="templatemo_webtitle">Elsas's<span> Charms</span></div>
+                    </div>
+                    <div class="col-sm-8">
+                        <nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->   
+                                <div id="top-menu">
+                                    <div class="collapse navbar-collapse main_menu" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li>
+                                                <a class="show-1 templatemo_home" href="#">
+                                                    <span class="fa fa-home"></span>HOME</a>
+                                            </li>
+                                            <li>
+                                                <a class="show-1 templatemo_page3" href="#">
+                                                <span class="fa fa-users"></span>ABOUT</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /.navbar-collapse -->
+                            </div>
+                            <!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    <!-- menu end -->
+    <div id="menu-container">
+        <div class="content homepage" id="menu-1">
+            <div class="container">
+                <!-- home start -->
+                <div class="row">
+                    <div class="templatemo_homewrapper shadow">
+                        <div class="templatemo_hometop_bg">
+                            <div class="col-md-6">
+                                <div class="templemo_hometop_img"><img src="~/images/elsasfondo.png" alt="templatemo home image"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="templatemo_hometop_title">Elsas's Charms</div>
+                                <div class="templatemo_hometop_subtitle">Productos de alta caliddad</div>
+                                <p>Elsas's Charms, surge como un proyecto familiar, que con mucho esfuerzo y empeño ha logrado salir adelante.</p>
+                                <p>Nuestro compromiso con el cliente, se basa en productos de alta calidad, productos innovadores, que marcan la diferencia en estilo y moda, los precios que ofrecemos son de acuerdo al producto, si eres cliente, tienes tu descuento.</p>
+                                <p>Este sitio web, nace como proyecto de Lenguaje de Programación IV, en el cual aplicamos el C# y ASP.Net, en el arduo camino del aprendizaje, aquí se refleja nuestro esfuerzo por la clase.</p>
+                                <div style="color:teal">Elsas's Charms, Proyecto de L4, Periodo III, 2021</div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    @RenderBody()
+                    <div class="clear"></div>
+                    <!-- home end -->
+                </div>
+            </div>
+        </div>
+        <!-- about start -->
+        <div class="clear"></div>
+        <div class="content about" id="menu-3">
+            <div class="container">
+                <div class="row templatemo_about_wrapper">
+                    <div class="col-md-12 gradient">
+                        <div class="templatemo_about">
+                            <div class="templatemo_about_title">LENGUAJE DE PROGRAMACION IV, PERIODO III, 2021</div>
+                            <div class="templatemo_about_subtitle">INTEGRANTES</div>
+                            <p>20152006761	Karla Cardona</p>
+                            <p>20132000743	Brayan Elan Bonilla</p>
+                            <p>20181008072	Daniela Sarahi Velasquez</p>
+                            <p>20162030334	Seberiano Castillo Umaña</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <!-- about end -->
     </div>
+    <!-- footer start -->
+    <div class="clear"></div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="templatemo_footer">
+
+                <div class="col-md-6">&copy; @DateTime.Now.Year - My ASP.NET Application - Elsas's Charms</div>
+                <div class="col-md-6">
+                    <div class="social"><a href="#"><img src="~/images/templatemo_fb.jpg" alt="facebook"></a></div>
+                    <div class="social"><a href="#"><img src="~/images/templatemo_gg.jpg" alt="google plus"></a></div>
+                    <div class="social"><a href="#"><img src="~/images/templatemo_tw.jpg" alt="twitter"></a></div>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+    <!-- footer end -->
 </body>
 </html>

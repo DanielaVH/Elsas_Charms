@@ -1,7 +1,62 @@
-﻿
+﻿@model List<ElsasCharms.BL.Producto>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Elsas's Charms";
 }
 
-<h2>Bienvenidos a Elsas's Charms, Tu tienda de Bisutería preferida</h2>
+<div class="row">
+    <div class="templatemo_home_mid shadow">
+        @foreach (var producto in Model.Take(3).OrderBy(r => Guid.NewGuid()))
+        {
+            <div class="col-md-4 templatemo_box gradient">
+                <div class="boxsub1">
+                    <div class="boxsub2">
+                        <div class="templatemo_home_midtext" style="color:red">
+                            <strong>____________________________________________________</strong>
+                        </div>    
+                        <div class="templatemo_home_midheader"  style="color:red">Producto Especial</div>
+                        <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="@producto.Descripcion" style="width:auto; height:250px">
+                        <div class="templatemo_home_midheader">@producto.Descripcion</div>
+                        <div class="templatemo_home_midtext"><strong>@producto.Categoria.Descripcion</strong></div>
+                        <div class="templatemo_home_midtext">
+                            <strong>____________________________________________________</strong>
+                        </div>
+                        <div class="templatemo_home_midheader" style="color:red">L. @producto.Precio</div>
+                        <div class="templatemo_home_midtext" style="color:red">
+                            <strong>____________________________________________________</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
+<div class="container">
+    <div class="row">        
+            <div class="clear"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="templatemo_home_mid shadow">
+        @foreach (var producto in Model.OrderBy(r=> r.Categoria.Descripcion))
+        {
+            <div class="col-md-4 templatemo_box gradient">
+                <div class="boxsub1">
+                    <div class="boxsub1">
+                        <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="@producto.Descripcion" style="width:auto; height:250px">
+                        <div class="templatemo_home_midheader">@producto.Descripcion</div>
+                        <div class="templatemo_home_midtext"><strong>@producto.Categoria.Descripcion</strong></div>
+                        <div class="templatemo_home_midtext">
+                            <strong>____________________________________________________</strong>
+                        </div>
+                        <div class="templatemo_home_midheader" style="color:red">L. @producto.Precio</div>
+                        <div class="templatemo_home_midtext">
+                            <strong>____________________________________________________</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
