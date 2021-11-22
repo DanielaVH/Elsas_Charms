@@ -2,28 +2,22 @@
 
 namespace ElsasCharms.BL
 {
-    internal class DatosdeInicio : CreateDatabaseIfNotExists<Contexto>
+    public class DatosdeInicio : CreateDatabaseIfNotExists<Contexto>
     {
         protected override void Seed(Contexto contexto)
         {
 
-            var producto1 = new Producto();
-            producto1.Id = 1;
-            producto1.Descripcion = "Anillo de Plata liso";
-            producto1.Precio = 250;
-            contexto.Productos.Add(producto1);
+            var usuario1 = new Usuario();
+            usuario1.Id = 1;
+            usuario1.Nombre = "Seberiano";
+            usuario1.Contrasena = Encriptar.CodificarContrasena("123");
+            contexto.Usuarios.Add(usuario1);
 
-            var producto2 = new Producto();
-            producto2.Id = 2;
-            producto2.Descripcion = "Anillo de Plata decorado dama";
-            producto2.Precio = 350;
-            contexto.Productos.Add(producto2);
-
-            var producto3 = new Producto();
-            producto3.Id = 3;
-            producto3.Descripcion = "Anillo de Plata decorado caballero";
-            producto3.Precio = 350;
-            contexto.Productos.Add(producto3);
+            var usuario2 = new Usuario();
+            usuario2.Id = 2;
+            usuario2.Nombre = "Admin";
+            usuario2.Contrasena = Encriptar.CodificarContrasena("123");
+            contexto.Usuarios.Add(usuario2);
 
             base.Seed(contexto);
         }

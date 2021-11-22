@@ -1,14 +1,17 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Login";
 }
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 <form method="post" action="/Login/Index">
     <div class="col-xs-12">
         <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-fw fa-user"></i></div>
-                <input type="text" name="username" class="form-control" placeholder="NOmbre de Usuario">
+                <input type="text" name="username" class="form-control" placeholder="Nombre de Usuario">
             </div>
         </div>
         <div class="form-group">

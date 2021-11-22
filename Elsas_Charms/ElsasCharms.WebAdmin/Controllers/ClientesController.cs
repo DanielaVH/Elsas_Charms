@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace ElsasCharms.WebAdmin.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ClientesController : Controller
     {
         ClientesBL _clientesBL;
